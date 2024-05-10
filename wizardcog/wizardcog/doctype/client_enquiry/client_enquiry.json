@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:EQNUIRY-{client_mail}-{######}",
  "creation": "2024-05-10 17:19:24.797723",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -45,10 +46,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-10 18:39:41.387916",
+ "modified": "2024-05-11 00:54:22.204634",
  "modified_by": "Administrator",
  "module": "Wizardcog",
  "name": "Client Enquiry",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
