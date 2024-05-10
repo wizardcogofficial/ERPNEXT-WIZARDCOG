@@ -1,0 +1,61 @@
+[
+ {
+  "charts": [],
+  "content": "[{\"id\":\"99fvOwHlRf\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">WizardCog</span>\",\"col\":12}},{\"id\":\"s9EN8vb_uw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Enquiry\",\"col\":12}},{\"id\":\"RDkN1BrR9z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Services\",\"col\":12}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "Administrator",
+  "hide_custom": 0,
+  "icon": "",
+  "indicator_color": "purple",
+  "is_hidden": 0,
+  "label": "WizardCog-Administrator",
+  "links": [],
+  "modified": "2024-05-10 21:00:48.366724",
+  "module": null,
+  "name": "WizardCog-Administrator",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 0,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 1.0,
+  "shortcuts": [
+   {
+    "color": "Cyan",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Enquiry",
+    "link_to": "Client Enquiry",
+    "parent": "WizardCog-Administrator",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Services",
+    "link_to": "Home Page Content",
+    "parent": "WizardCog-Administrator",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   }
+  ],
+  "title": "WizardCog"
+ }
+]

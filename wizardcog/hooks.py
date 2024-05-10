@@ -4,6 +4,31 @@ app_publisher = "WizardCog Technologies"
 app_description = "Wizardcog ERPNext Customizations"
 app_email = "wizardcogofficial@gmail.com"
 app_license = "mit"
+#!================================================================>
+from .urls import route_list
+website_route_rules=route_list
+#!================================================================>
+fixtures=[
+    {
+    
+	"dt":"Website Settings",
+	
+	},
+     {
+    
+	"dt":"Workspace",
+	"filters":{"public":0}
+	},
+    {
+        "dt":"Custom HTML Block"
+	}
+    
+]
+
+website_context = {
+"favicon": "/assets/wizardcog/images/WizardcogLarge.png",
+"splash_image": "/assets/wizardcog/images/WizardcogLarge.png"
+}
 # required_apps = []
 
 # Includes in <head>

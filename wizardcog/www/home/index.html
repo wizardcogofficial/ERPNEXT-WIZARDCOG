@@ -1,0 +1,61 @@
+{% extends "templates/basehome.html" %}
+{% block title %}Home{% endblock title %}
+{% block style %}
+
+{% endblock style %}
+{% block body %}
+
+
+
+{% if case=="non_routed" %}
+          <!-- Add the banner image below the navbar -->
+          <img class="banner-image" src="/assets/wizardcog/images/cog.png" alt="Banner Image">
+          <div class="container">
+            <div class="heading">
+                <h2><strong>Our Services</strong></h2>
+                <h5><i>At WizardCog Technologies,
+                  Our tailored platforms empower businesses to streamline operations, 
+                  optimize customer relationships, and drive growth in today's dynamic digital landscape.
+                </i></h5>
+            </div>
+            <div class="row">
+                {% for data in content %}
+                <div class="card">
+                    <div class="card-header">
+                        <h1>{{ data.title }}</h1>
+                    </div>
+                    <div class="card-image">
+                        <img src="{{ data.image }}" alt="React Image">
+                    </div>
+                    <div class="card-body">
+                        <p>{{ data.summary }}</p>
+                        <a href="/home/{{data.id}}" class="btn">Read more</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+{% else %}
+       
+    <img class="banner-image" src="/assets/wizardcog/images/cog.png" alt="Banner Image">
+    <div class="container">
+        <div class="heading">
+    
+            <p></p>
+            <div style="text-align: left;"> <!-- Adjusted alignment -->
+                <h4>• Service: {{ content.title }}</h4>
+                <h4>• Pricing Range: {{ content.price_range }}</h4>
+                <p style="font-size: medium;">• {{ content.description }}</p>
+                <h4><a style="color: black;" href="/home"><strong>← Home</strong></a></h4>
+            </div>
+        </div>
+    </div>
+
+
+{% endif %}
+<!-- Footer -->
+
+
+{% endblock body %}
+{% block script %}
+{% endblock script %}

@@ -1,0 +1,242 @@
+{% extends "templates/web.html" %}
+
+{% macro email_login_body() -%}
+{% if not disable_user_pass_login or (ldap_settings and ldap_settings.enabled) %}
+<div class="page-card-body">
+	<div class="form-group">
+		<label  class="form-label sr-only" for="login_email">{{ login_label or _("Email")}}</label>
+		
+		<div class="email-field">
+			<input style="font-family: Gill Sans;font-weight: 600;border:solid 1px black" type="text" id="login_email" class="form-control" 
+			placeholder="Please Enter Your Email">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label sr-only" for="login_password">{{ _("Password") }}</label>
+		<div class="password-field">
+			<input style="font-family: Gill Sans;font-weight: 600;border:solid 1px black" type="password" id="login_password" class="form-control"
+				autocomplete="current-password" required placeholder="shhhh*******">
+			<span toggle="#login_password" class="toggle-password text-muted">{{ _('Reveal') }}</span>
+		</div>
+	</div>
+
+	<p class="forgot-password-message">
+		<a style="color: rgb(0, 0, 0);;font-family: Gill Sans;font-weight: 400;" href="#forgot">{{ _("Don't Remember Password") }}</a>
+	</p>
+	
+</div>
+{% endif %}
+<div class="page-card-actions">
+	{% if not disable_user_pass_login %}
+	<button style="color:white;background-color:#3c2b50;border:solid 1px rgb(108, 0, 111);" class="btn btn-sm btn-outline-primary btn-block "
+	 type="submit">
+		{{ _("Log In") }}</button>
+	{% endif %}
+	{% if ldap_settings and ldap_settings.enabled %}
+	<button class="btn btn-sm btn-default btn-block btn-login btn-ldap-login">
+		{{ _("Login with LDAP") }}</button>
+	{% endif %}
+	<br>
+	<p class="forgot-password-message">
+		<strong>
+		<a style="color: rgb(0, 0, 0);font-family: Gill Sans;font-weight: 400;font-size:large" href="/home">{{ _(" Home←") }}</a>
+		</strong>
+	</p>
+</div>
+{% endmacro %}
+
+{% block head_include %}
+{{ include_style('login.bundle.css') }}
+{% endblock %}
+
+{% macro logo_section(title=null) %}
+<div class="page-card-head">
+	
+	<br>
+	<img width="50px" class="app-logo" src="assets/wizardcog/images/logo-dark.png">
+	{% if title %}
+	<h4 style="color:#413d47;">{{ _(title)}}</h4>
+	{% else %}
+	<h4 style="color:#413d47;">{{ _('{0}').format("WizardCog Technologies") }}</h4>
+	{% endif %}
+	
+</div>
+{% endmacro %}
+
+{% block page_content %}
+<!-- {{ for_test }} -->
+<div>
+	<noscript>
+		<div class="text-center my-5">
+			<h4>{{ _("Javascript is disabled on your browser") }}</h4>
+			<p class="text-muted">
+				{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
+		</div>
+	</noscript>
+	<section class='for-login'>
+		<br><br>
+		{{ logo_section() }}
+		<div class="login-content page-card" style="background-color:#ffffff;border: solid 2px #1d1e22;">
+			<form class="form-signin form-login" role="form">
+				{%- if social_login or login_with_email_link -%}
+				<div class="page-card-body">
+					<form class="form-signin form-login" role="form">
+						{{ email_login_body() }}
+					</form>
+					<div class="social-logins text-center">
+						{% if not disable_user_pass_login or (ldap_settings and ldap_settings.enabled) %}
+						<p class="text-muted login-divider">{{ _("") }}</p>
+						{% endif %}
+						<div class="social-login-buttons">
+							{% for provider in provider_logins %}
+							<div class="login-button-wrapper">
+								<a href="{{ provider.auth_url }}"
+									class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
+									{% if provider.icon %}
+										{{ provider.icon }}
+									{% endif %}
+									{{ _("Login With {0}").format(provider.provider_name) }}</a>
+							</div>
+							{% endfor %}
+						</div>
+						{% if login_with_email_link %}
+						<!--
+						<div class="login-with-email-link social-login-buttons">
+							<div class="login-button-wrapper">
+								<a href="#login-with-email-link"
+									class="btn btn-block btn-default btn-sm btn-login-option btn-login-with-email-link">
+									{{ _("Login with Email Link") }}</a>
+							</div>
+						</div>
+						-->
+						{% endif %}
+					</div>
+				</div>
+				{% else %}
+					{{ email_login_body() }}
+				{%- endif -%}
+			</form>
+		</div>
+		{%- if not disable_signup and not disable_user_pass_login -%}
+		<div class="text-center sign-up-message">
+			{{ _("Don't have an account?") }}
+			<a href="#signup">{{ _("Sign up") }}</a>
+		</div>
+		{%- endif -%}
+	</section>
+
+	{%- if social_login -%}
+	<section class='for-email-login'>
+		<br><br>
+		{{ logo_section() }}
+		<div class="login-content page-card" style="background-color:#ffffff;border: solid 2px #1d1e22;">
+			<form class="form-signin form-login" role="form">
+			{{ email_login_body() }}
+			</form>
+		</div>
+		{%- if not disable_signup and not disable_user_pass_login -%}
+		<div class="text-center sign-up-message">
+			{{ _("Don't have an account?") }}
+			<a href="#signup">{{ _("Sign up") }}</a>
+		</div>
+		{%- endif -%}
+	</section>
+	{%- endif -%}
+	<section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
+		<br><br>
+		{{ logo_section(_('Create a {0} Account').format(app_name or _("Frappe"))) }}
+		<div class="login-content page-card" style="background-color:#1d1e22;border: solid 2px #1d1e22;">
+			{%- if not disable_signup -%}
+			{{ signup_form_template }}
+			{%- else -%}
+			<div class='page-card-head mb-2'>
+				<span class='indicator gray'>{{_("Signup Disabled")}}</span>
+				<p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
+				<div><a href='/' class='btn btn-primary btn-md'>{{ _("Our Services") }}</a></div>
+			</div>
+			{%- endif -%}
+		</div>
+
+	</section>
+
+	<section class='for-forgot'>
+		<br><br>
+		{{ logo_section('Forgot Password') }}
+		<div class="login-content page-card" style="background-color:#ffffff;border: solid 2px #1d1e22;">
+			<form class="form-signin form-forgot hide" role="form">
+				<div class="page-card-body">
+					<div class="email-field">
+						<input type="email" id="forgot_email" class="form-control"
+							placeholder="{{ _('Email Address') }}" required autofocus autocomplete="username">
+						<svg class="field-icon email-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M2.5 7.65149V15.0757C2.5 15.4374 2.64367 15.7842 2.8994 16.04C3.15513 16.2957 3.50198 16.4394 3.86364 16.4394H16.1364C16.498 16.4394 16.8449 16.2957 17.1006 16.04C17.3563 15.7842 17.5 15.4374 17.5 15.0757V7.65149"
+								stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
+							<path
+								d="M17.5 7.57572V5.53026C17.5 5.1686 17.3563 4.82176 17.1006 4.56603C16.8449 4.31029 16.498 4.16663 16.1364 4.16663H3.86364C3.50198 4.16663 3.15513 4.31029 2.8994 4.56603C2.64367 4.82176 2.5 5.1686 2.5 5.53026V7.57572L10 10.8333L17.5 7.57572Z"
+								stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
+						</svg>
+
+					</div>
+				</div>
+				<div class="page-card-actions">
+					<button style="background-color: #d9d9d9;color:rgb(114, 5, 110);border:solid 1px rgb(84, 2, 71)" class="btn btn-sm btn-primary btn-block btn-forgot"
+						type="submit">{{ _("Reset Password") }}</button>
+					<p class="text-center sign-up-message">
+						<a style="color: white;" href="#login">{{ _("Back to Login") }}</a>
+					</p>
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+	<section class='for-login-with-email-link'>
+			<br><br>
+			{{ logo_section('Login With Email Link') }}
+		<div class="login-content page-card" style="background-color:#ffffff;border: solid 2px #1d1e22;">
+			<form class="form-signin form-login-with-email-link hide" role="form">
+				<div class="page-card-body">
+					<div class="email-field">
+						<input type="email" id="login_with_email_link_email" class="form-control"
+							placeholder="{{ _('Email Address') }}" required autofocus autocomplete="username">
+						<svg class="field-icon email-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M2.5 7.65149V15.0757C2.5 15.4374 2.64367 15.7842 2.8994 16.04C3.15513 16.2957 3.50198 16.4394 3.86364 16.4394H16.1364C16.498 16.4394 16.8449 16.2957 17.1006 16.04C17.3563 15.7842 17.5 15.4374 17.5 15.0757V7.65149"
+								stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
+							<path
+								d="M17.5 7.57572V5.53026C17.5 5.1686 17.3563 4.82176 17.1006 4.56603C16.8449 4.31029 16.498 4.16663 16.1364 4.16663H3.86364C3.50198 4.16663 3.15513 4.31029 2.8994 4.56603C2.64367 4.82176 2.5 5.1686 2.5 5.53026V7.57572L10 10.8333L17.5 7.57572Z"
+								stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
+						</svg>
+					</div>
+				</div>
+				<div class="page-card-actions">
+					<button class="btn btn-sm btn-primary btn-block btn-login-with-email-link"
+						type="submit">{{ _("Send login link") }}</button>
+					<p class="text-center sign-up-message">
+						<a href="#login">{{ _("Back to Login") }}</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</section>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+	{% include "templates/includes/login/login.js" %}
+</script>
+<script>
+	document.body.style.backgroundColor="#ffffff"
+	var nav = document.getElementsByClassName("navbar-light");
+	var nav1=nav[0];
+	nav1.style.visibility = "hidden";
+	console.log(nav1);
+</script>
+{% endblock %}
+
+{% block sidebar %}{% endblock %}

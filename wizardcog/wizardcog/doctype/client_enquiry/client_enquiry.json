@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-10 17:19:24.797723",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "client_information_section",
+  "enquiry_status",
+  "client_mail",
+  "enquiry_for",
+  "enquiry_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "client_information_section",
+   "fieldtype": "Section Break",
+   "label": "Client Information"
+  },
+  {
+   "default": "Open",
+   "fieldname": "enquiry_status",
+   "fieldtype": "Select",
+   "label": "Enquiry Status",
+   "options": "Open\nReplied"
+  },
+  {
+   "fieldname": "client_mail",
+   "fieldtype": "Data",
+   "label": "Client Mail"
+  },
+  {
+   "fieldname": "enquiry_for",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Enquiry For",
+   "options": "Inventory Management\nERP\nCRM\nHRMS\nEcommerce\nAnalytics\nWebsite\nWeb App\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "enquiry_message",
+   "fieldtype": "Small Text",
+   "label": "Enquiry Message"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-10 18:39:41.387916",
+ "modified_by": "Administrator",
+ "module": "Wizardcog",
+ "name": "Client Enquiry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

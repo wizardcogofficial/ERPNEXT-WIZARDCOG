@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/assets/wizardcog/images/WizardcogLarge.png">
+    <style>
+        /* Add this CSS */
+        .responsive-image-container {
+            width: 200px; /* Set width to 200 pixels */
+            height: 200px; /* Set height to 200 pixels */
+            margin: 0 auto; /* Center the container */
+            overflow: hidden; /* Hide overflow to prevent horizontal scrolling */
+        }
+        
+        .responsive-image {
+            width: 60%; /* Ensure image fills its container */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensure block-level display */
+        }
+    
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background: #ffffff;
+            font-family: sans-serif;
+            color: black; /* Set text color to white */
+            margin-bottom: 80px; /* Ensure space for the footer */
+        }
+    
+        .container {
+            width: 90%;
+            margin: 50px auto;
+        }
+    
+        .heading {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 50px;
+            color: black; /* Set heading color */
+        }
+    
+        .row {
+            display: flex;
+            justify-content: space-around;
+            flex-flow: wrap;
+        }
+    
+        .card {
+            width: 30%;
+            background: linear-gradient(to bottom, #6A0DAD, #38085D); /* Purple gradient background */
+            border: 1px solid #ccc;
+            margin-bottom: 50px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px; /* Rounded corners */
+        }
+    
+        .card-header {
+            text-align: center;
+            padding: 50px 10px;
+            color: white; /* Set header text color to white */
+        }
+    
+        .card-image {
+            text-align: center;
+        }
+    
+        .card-image img {
+            width: 100%; /* Ensure image width matches card width */
+            max-height: 300px; /* Adjusted image height */
+            height: auto;
+            border-top-left-radius: 10px; /* Rounded top left corner */
+            border-top-right-radius: 10px; /* Rounded top right corner */
+        }
+    
+        .card-body {
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 18px;
+            color: white; /* Set body text color to white */
+        }
+    
+        .card-body .btn {
+            display: block;
+            color: white; /* Set button text color to white */
+            text-align: center;
+            background: linear-gradient(to right, #ff41ff, #ff4b2b);
+            text-decoration: none;
+            margin-top: 30px;
+            padding: 10px 5px;
+            transition: 0.3s;
+        }
+    
+        .card-body .btn:hover {
+            transform: scale(1.1);
+        }
+    
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+        }
+    
+        @media screen and (max-width: 1000px) {
+            .card {
+                width: 40%;
+            }
+        }
+    
+        @media screen and (max-width: 620px) {
+            .container {
+                width: 100%;
+            }
+    
+            .heading {
+                padding: 20px;
+                font-size: 30px;
+            }
+    
+            .card {
+                width: 80%;
+            }
+        }
+    
+        /* Navbar styles */
+        
+        .navbar {
+            display: flex;
+            background-color: #2a2b2f;
+            align-items: center;
+            color: whitesmoke;
+            padding: 10px;
+        }
+    
+        .navbar a {
+            margin-left: 10px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+    
+        .navbar input[type="text"] {
+            margin-left: auto;
+            padding: 6px;
+            margin-top: 8px;
+            margin-right: 16px;
+            border: none;
+            font-size: 17px;
+            color: white; /* Set navbar input text color to white */
+        }
+    
+        @media screen and (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+    
+            .navbar a {
+                display: block;
+                margin: 10px 0; /* Add margin between links */
+            }
+    
+            .navbar input[type="text"] {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+    
+        /* Banner image styles */
+        .banner-image {
+            width: 100%; /* Make the image fill the container */
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensure block-level display */
+        }
+    
+        /* Footer styles */
+        .footer {
+            background-color: #1d1e22; /* Match body color */
+            color: white; /* Text color */
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+    {% block style %} {% endblock style %}
+</head>
+<body>
+    <!-- Grey with black text -->
+    
+    <div  class="navbar">
+        <a href="/login"><img width="80px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
+        {% if frappe.session.user =='Guest' %}
+                    <a href="/login"><strong> <i>Login</i></strong></a>
+        {% else %}
+                    <a href="/me"><strong> <i>My Account</i></strong></a>
+        {% endif %}
+       
+       
+        <a href="/about-us"><strong><i>About Us</i></strong></a>
+        <a href="/client-equiry"><strong><i>Contact</i></strong></a>
+        <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
+            <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin.png" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
+            <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
+            <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
+        </div>
+    </div>
+    
+    {% block body %}
+    {% endblock body %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"
+    integrity="sha512-zP5W8791v1A6FToy+viyoyUUyjCzx+4K8XZCKzW28AnCoepPNIXecxh9mvGuy3Rt78OzEsU+VCvcObwAMvBAww=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<footer class="footer" style="background-color: #2a2b2f;">
+    <p style="color: white;">WizardCog© 2024 . All rights reserved.</p>
+</footer> 
+{% block script %}
+    
+{% endblock script %}
+
+</body>
+</html>
