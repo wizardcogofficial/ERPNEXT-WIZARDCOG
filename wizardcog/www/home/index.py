@@ -23,6 +23,7 @@ def home_page_content_by_id(id):
                         "title",
                         "summary",
                         "image",
+                        "price_range",
                         "description"]) 
         if len(data)>0:
                 data=data[0]
