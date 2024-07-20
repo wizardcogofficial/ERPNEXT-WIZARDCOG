@@ -1,0 +1,110 @@
+{% extends "templates/basehome.html" %}
+{% block title %}Blogs{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="/assets/wizardcog/css/style1.css">
+{% endblock style %}
+{% block navbar %}
+        <div  class="my-navbar">
+            <a href="/home"><img width="45px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
+            {% if frappe.session.user =='Guest' %}
+                        <a href="/login"><strong> <i>Profile</i></strong></a>
+            {% else %}
+                        <a href="/desk"><strong> <i>Profile</i></strong></a>
+            {% endif %}
+            <a href="/about-us"><strong><i>About</i></strong></a>
+            <a href="/ourvlogs"><strong><i>Blogs</i></strong></a>
+
+            <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
+                <button id="contact-btn" class="btn btn-primary btn-small btn-small-block btn-update" onclick="createEnquiry()">Enquiry</button>
+                <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin2.jpg" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
+                <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
+                <a href="https://twitter.com/WizardCog" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
+            </div>
+        </div>
+{% endblock navbar %}
+{% block banner %}
+        <img class="banner-image" src="/assets/wizardcog/images/bannerwc.png" alt="Banner Image">
+{% endblock banner %}
+
+{% block body %}
+<!--BLOGS-->
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
+{% if case=="non_routed" %}
+          <!-- Add the banner image below the navbar -->
+          <div class="container">
+            <div class="heading">
+                <h2><strong>Our Blogs</strong></h2>
+            </div>
+            
+           
+            <div class="row">
+                {% for data in blog_links %}
+                <div class="card">
+                    
+                    <div class="card-image">
+                        <img src="{{ data.image }}" alt="React Image">
+                    </div>
+                    <div class="card-header">
+                        <h5>{{ data.title }}</h5>
+                        <a href="/ourvlogs/{{data.name}}" class="btn btn-primary btn-small btn-small-block btn-update">Read more</a>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+
+          <!--VIDEOS-->
+        <div class="container">
+            <div class="heading">
+                <h2><strong>Our Videos</strong></h2>
+            
+            </div>
+            
+            
+            <div class="row">
+                {% for data in content %}
+                <div class="card-video">
+                        <iframe src="{{data.video_link}}" frameborder="0"></iframe>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+    
+{% else %}
+       
+    
+    <div class="container">
+        <div class="card-image">
+            <img src="{{ data.image }}" alt="React Image">
+        </div>
+        <div class="heading">
+            <p></p>
+            <div style="text-align: left;"> <!-- Adjusted alignment -->
+                <h4>• {{ data.title }}</h4>
+                <p style="font-size: medium;">• {{ data.content }}</p>
+                <h4><a style="color: black;" href="/ourvlogs"><strong>← Go Back</strong></a></h4>
+            </div>
+        </div>
+    </div>
+
+
+{% endif %}
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
+
+
+        
+
+<!-- Footer -->
+
+
+{% endblock body %}
+{% block script %}
+<script>
+    function createEnquiry(){
+        console.log("Create Enquiry")
+    }
+</script>
+{% endblock script %}

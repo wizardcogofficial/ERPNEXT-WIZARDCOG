@@ -6,216 +6,33 @@
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="/assets/wizardcog/images/WizardcogLarge.png">
-    <style>
-        /* Add this CSS */
-        .responsive-image-container {
-            width: 200px; /* Set width to 200 pixels */
-            height: 200px; /* Set height to 200 pixels */
-            margin: 0 auto; /* Center the container */
-            overflow: hidden; /* Hide overflow to prevent horizontal scrolling */
-        }
-        
-        .responsive-image {
-            width: 60%; /* Ensure image fills its container */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Ensure block-level display */
-        }
-    
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-    
-        body {
-            background: #ffffff;
-            font-family: sans-serif;
-            color: black; /* Set text color to white */
-            margin-bottom: 80px; /* Ensure space for the footer */
-        }
-    
-        .container {
-            width: 90%;
-            margin: 50px auto;
-        }
-    
-        .heading {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 50px;
-            color: black; /* Set heading color */
-        }
-    
-        .row {
-            display: flex;
-            justify-content: space-around;
-            flex-flow: wrap;
-        }
-    
-        .card {
-            width: 30%;
-            background: linear-gradient(to bottom, #6A0DAD, #38085D); /* Purple gradient background */
-            border: 1px solid #ccc;
-            margin-bottom: 50px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            border-radius: 10px; /* Rounded corners */
-        }
-    
-        .card-header {
-            text-align: center;
-            padding: 50px 10px;
-            color: white; /* Set header text color to white */
-        }
-    
-        .card-image {
-            text-align: center;
-        }
-    
-        .card-image img {
-            width: 100%; /* Ensure image width matches card width */
-            max-height: 300px; /* Adjusted image height */
-            height: auto;
-            border-top-left-radius: 10px; /* Rounded top left corner */
-            border-top-right-radius: 10px; /* Rounded top right corner */
-        }
-    
-        .card-body {
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 18px;
-            color: white; /* Set body text color to white */
-        }
-    
-        .card-body .btn {
-            display: block;
-            color: white; /* Set button text color to white */
-            text-align: center;
-            background: linear-gradient(to right, #ff41ff, #ff4b2b);
-            text-decoration: none;
-            margin-top: 30px;
-            padding: 10px 5px;
-            transition: 0.3s;
-        }
-    
-        .card-body .btn:hover {
-            transform: scale(1.1);
-        }
-    
-        .card:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
-        }
-    
-        @media screen and (max-width: 1000px) {
-            .card {
-                width: 40%;
-            }
-        }
-    
-        @media screen and (max-width: 620px) {
-            .container {
-                width: 100%;
-            }
-    
-            .heading {
-                padding: 20px;
-                font-size: 30px;
-            }
-    
-            .card {
-                width: 80%;
-            }
-        }
-    
-        /* Navbar styles */
-        
-        .navbar {
-            display: flex;
-            background-color: #2a2b2f;
-            align-items: center;
-            color: whitesmoke;
-            padding: 10px;
-        }
-    
-        .navbar a {
-            margin-left: 10px;
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-        }
-    
-        .navbar input[type="text"] {
-            margin-left: auto;
-            padding: 6px;
-            margin-top: 8px;
-            margin-right: 16px;
-            border: none;
-            font-size: 17px;
-            color: white; /* Set navbar input text color to white */
-        }
-    
-        @media screen and (max-width: 600px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-    
-            .navbar a {
-                display: block;
-                margin: 10px 0; /* Add margin between links */
-            }
-    
-            .navbar input[type="text"] {
-                margin-left: 0;
-                margin-top: 10px;
-                width: 100%;
-            }
-        }
-    
-        /* Banner image styles */
-        .banner-image {
-            width: 100%; /* Make the image fill the container */
-            max-width: 100%;
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Ensure block-level display */
-        }
-    
-        /* Footer styles */
-        .footer {
-            background-color: #1d1e22; /* Match body color */
-            color: white; /* Text color */
-            padding: 20px 0;
-            text-align: center;
-            width: 100%;
-            position: relative;
-            bottom: 0;
-        }
-    </style>
-    {% block style %} {% endblock style %}
+    <link rel="icon"
+		href="/assets/wizardcog/images/WizardcogLarge.png" type="image/x-icon">
+		<link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/desk.bundle.UBEIHRM7.css">
+        <link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/report.bundle.FK32TEFW.css">
+        <link type="text/css" rel="stylesheet" href="/assets/erpnext/dist/css/erpnext.bundle.WMCALI5T.css">
+        <link type="text/css" rel="stylesheet" href="/assets/hrms/dist/css/hrms.bundle.N6HR42LC.css">
+        <link type="text/css" rel="stylesheet" href="/assets/twilio_integration/css/twilio_call_handler.css">
+        <link type="text/css" rel="stylesheet" href="/assets/tekton_theme/dist/css/tekton.bundle.QRP5X46P.css">
+        {% block style %} 
+        {% endblock style %}
+    <!--Frappe Script and Other things for enabling frappe//Frappe Resources-->
+    <script>
+		window.frappe = {};
+		frappe.ready_events = [];
+		frappe.ready = function(fn) {
+			frappe.ready_events.push(fn);
+		}
+		window.dev_server = {{ dev_server }};
+		window.socketio_port = {{ (frappe.socketio_port or 9000) }};
+		window.show_language_picker = {{ show_language_picker or 'false' }};
+	</script>
+
 </head>
-<body>
+<body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}" data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {%- endif %} class="{{ body_class or ''}}">
     <!-- Grey with black text -->
-    
-    <div  class="navbar">
-        <a href="/home"><img width="80px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
-        <a href="/home"><strong><i>Home</i></strong></a>
-        {% if frappe.session.user =='Guest' %}
-                    <a href="/login"><strong> <i>Login</i></strong></a>
-        {% else %}
-                    <a href="/me"><strong> <i>My Account</i></strong></a>
-        {% endif %}
-       
-       
-        <a href="/about-us"><strong><i>About Us</i></strong></a>
-        <a href="/client-equiry"><strong><i>Contact</i></strong></a>
-        <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
-            <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin.png" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
-            <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
-            <a href="https://twitter.com/WizardCog" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
-        </div>
-    </div>
-    
+    {% block navbar %}{% endblock navbar %}    
+    {% block banner %}{% endblock banner %}
     {% block body %}
     {% endblock body %}
 
@@ -237,11 +54,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<footer class="footer" style="background-color: #2a2b2f;">
-    <p style="color: white;">WizardCog© 2024 . All rights reserved.</p>
-</footer> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--Frappe Resources-->
+    <script type="text/javascript" src="/assets/frappe/dist/js/libs.bundle.LLRFRX7M.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/desk.bundle.KCXVR24D.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/list.bundle.CVGNDTRM.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/form.bundle.TKFS3LAI.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/controls.bundle.KJGDDOLR.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/report.bundle.W7KSXB2R.js"></script>
+	<script type="text/javascript" src="/assets/frappe/dist/js/telemetry.bundle.ZJBT5ETW.js"></script>
+	<script type="text/javascript" src="/assets/erpnext/dist/js/erpnext.bundle.SM4W5CHI.js"></script>
+	<script type="text/javascript" src="/assets/hrms/dist/js/hrms.bundle.JJBTL5GW.js"></script>
+	<script type="text/javascript" src="/assets/india_compliance/dist/js/india_compliance.bundle.FEQV43FV.js"></script>
+	<script type="text/javascript" src="/assets/twilio_integration/js/twilio_call_handler.js"></script>
+	<script type="text/javascript" src="/assets/healthcare/dist/js/healthcare.bundle.5EIIQBG6.js"></script>
+	<script type="text/javascript" src="/assets/tekton_theme/dist/js/tekton.bundle.G6ANCHAH.js"></script>
+	
+    
+    <footer class="footer">
+    <p style="color: rgb(255, 255, 255);">WizardCog© 2024 . All rights reserved.</p>
+    </footer> 
 {% block script %}
     
 {% endblock script %}

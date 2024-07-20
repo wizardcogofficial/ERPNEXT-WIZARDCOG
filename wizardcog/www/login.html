@@ -22,14 +22,14 @@
 	</div>
 
 	<p class="forgot-password-message">
-		<a style="color: rgb(0, 0, 0);;font-family: Gill Sans;font-weight: 400;" href="#forgot">{{ _("Don't Remember Password") }}</a>
+		<a style="color: rgb(255, 255, 255);;font-family: Gill Sans;font-weight: 400;" href="#forgot">{{ _("Don't Remember Password") }}</a>
 	</p>
 	
 </div>
 {% endif %}
 <div class="page-card-actions">
 	{% if not disable_user_pass_login %}
-	<button style="color:white;background-color:#3c2b50;border:solid 1px rgb(108, 0, 111);" class="btn btn-sm btn-outline-primary btn-block "
+	<button style="color:rgb(0, 0, 0);background-color:#ffffff;border:solid 1px rgb(0, 0, 0);" class="btn btn-sm btn-outline-primary btn-block "
 	 type="submit">
 		{{ _("Log In") }}</button>
 	{% endif %}
@@ -40,7 +40,7 @@
 	<br>
 	<p class="forgot-password-message">
 		<strong>
-		<a style="color: rgb(0, 0, 0);font-family: Gill Sans;font-weight: 400;font-size:large" href="/home">{{ _(" Home←") }}</a>
+		<a style="color: rgb(0, 0, 0);background-color:#ffffff;padding:5px;border-radius:5px;font-weight: 300;font-size:medium" href="/home">{{ _(" Home") }}</a>
 		</strong>
 	</p>
 </div>
@@ -51,17 +51,7 @@
 {% endblock %}
 
 {% macro logo_section(title=null) %}
-<div class="page-card-head">
-	
-	<br>
-	<img width="50px" class="app-logo" src="assets/wizardcog/images/logo-dark.png">
-	{% if title %}
-	<h4 style="color:#413d47;">{{ _(title)}}</h4>
-	{% else %}
-	<h4 style="color:#413d47;">{{ _('{0}').format("WizardCog Technologies") }}</h4>
-	{% endif %}
-	
-</div>
+
 {% endmacro %}
 
 {% block page_content %}
@@ -77,7 +67,12 @@
 	<section class='for-login'>
 		<br><br>
 		{{ logo_section() }}
-		<div class="login-content page-card" style="background-color:#ffffff;border: solid 2px #1d1e22;">
+		<br><br>
+		<div class="login-content page-card" style="background-color:#1849a5;border: solid 2px #1d1e22;">
+			<div class="page-card-head">
+				<img class="app-logo" src="assets/wizardcog/images/WizardcogLarge.png">
+				
+			</div>
 			<form class="form-signin form-login" role="form">
 				{%- if social_login or login_with_email_link -%}
 				<div class="page-card-body">
@@ -146,7 +141,7 @@
 	<section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
 		<br><br>
 		{{ logo_section(_('Create a {0} Account').format(app_name or _("Frappe"))) }}
-		<div class="login-content page-card" style="background-color:#1d1e22;border: solid 2px #1d1e22;">
+		<div class="login-content page-card" style="background-color:#1849a5;border: solid 2px #072fce;">
 			{%- if not disable_signup -%}
 			{{ signup_form_template }}
 			{%- else -%}
@@ -163,7 +158,7 @@
 	<section class='for-forgot'>
 		<br><br>
 		{{ logo_section('Forgot Password') }}
-		<div class="login-content page-card" style="background-color:#ffffff;border: solid 2px #1d1e22;">
+		<div class="login-content page-card" style="background-color:#1849a5;border: solid 2px #000000;">
 			<form class="form-signin form-forgot hide" role="form">
 				<div class="page-card-body">
 					<div class="email-field">
@@ -182,7 +177,7 @@
 					</div>
 				</div>
 				<div class="page-card-actions">
-					<button style="background-color: #d9d9d9;color:rgb(114, 5, 110);border:solid 1px rgb(84, 2, 71)" class="btn btn-sm btn-primary btn-block btn-forgot"
+					<button style="background-color: #1849a5;color:rgb(255, 255, 255);border:solid 1px rgb(255, 255, 255)" class="btn btn-sm btn-primary btn-block btn-forgot"
 						type="submit">{{ _("Reset Password") }}</button>
 					<p class="text-center sign-up-message">
 						<a style="color: white;" href="#login">{{ _("Back to Login") }}</a>

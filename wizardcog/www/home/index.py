@@ -34,6 +34,7 @@ def home_page_content_by_id(id):
 
 
 def get_context(context):
+      
         form_data=frappe.form_dict
         content_no=form_data.get("content_no")
         #!PARAMETER CASE=>

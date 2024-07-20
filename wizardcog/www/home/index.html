@@ -1,48 +1,63 @@
 {% extends "templates/basehome.html" %}
 {% block title %}Home{% endblock title %}
 {% block style %}
-
+<link rel="stylesheet" href="/assets/wizardcog/css/style1.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 {% endblock style %}
+{% block navbar %}
+<div class="my-navbar">
+    <a href="/home"><img width="45px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
+    {% if frappe.session.user =='Guest' %}
+        <a href="/login"><strong> <i>Profile</i></strong></a>
+    {% else %}
+        <a href="/desk"><strong> <i>Profile</i></strong></a>
+    {% endif %}
+    <a href="/about-us"><strong><i>About</i></strong></a>
+    <a href="/ourvlogs"><strong><i>Blogs</i></strong></a>
+
+    <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
+        <button id="contact-btn" class="btn btn-primary btn-small btn-small-block btn-update" data-toggle="modal" data-target="#enquiryModal">Enquiry</button>
+        <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin2.jpg" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
+        <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
+        <a href="https://twitter.com/WizardCog" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
+    </div>
+</div>
+{% endblock navbar %}
+{% block banner %}
+<img class="banner-image" src="/assets/wizardcog/images/bannerwc.png" alt="Banner Image">
+{% endblock banner %}
+
 {% block body %}
-
-
-
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
 {% if case=="non_routed" %}
-          <!-- Add the banner image below the navbar -->
-          <img class="banner-image" src="/assets/wizardcog/images/cog.png" alt="Banner Image">
-          <div class="container">
-            <div class="heading">
-                <h2><strong>Our Services</strong></h2>
-                <h5><i>At WizardCog Technologies,
-                  Our tailored platforms empower businesses to streamline operations, 
-                  optimize customer relationships, and drive growth in today's dynamic digital landscape.
-                </i></h5>
-            </div>
-            <div class="row">
-                {% for data in content %}
-                <div class="card">
-                    <div class="card-header">
-                        <h1>{{ data.title }}</h1>
-                    </div>
-                    <div class="card-image">
-                        <img src="{{ data.image }}" alt="React Image">
-                    </div>
-                    <div class="card-body">
-                        <p>{{ data.summary }}</p>
-                        <a href="/home/{{data.id}}" class="btn">Read more</a>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-          </div>
-{% else %}
-       
-    <img class="banner-image" src="/assets/wizardcog/images/cog.png" alt="Banner Image">
     <div class="container">
         <div class="heading">
-    
+            <h2><strong>Our Services</strong></h2>
+            <h5><i>At WizardCog Technologies,
+                Our tailored platforms empower businesses to streamline operations, 
+                optimize customer relationships, and drive growth in today's dynamic digital landscape.
+            </i></h5>
+        </div>
+        <div class="row">
+            {% for data in content %}
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ data.image }}" alt="React Image">
+                </div>
+                <div class="card-header">
+                    <h5>{{ data.title }}</h5>
+                    <a href="/home/{{data.id}}" class="btn btn-primary btn-small btn-small-block btn-update">Read more</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <div class="container">
+        <div class="heading">
             <p></p>
-            <div style="text-align: left;"> <!-- Adjusted alignment -->
+            <div style="text-align: left;">
                 <h4>• Service: {{ content.title }}</h4>
                 <h4>• Pricing Range: {{ content.price_range }}</h4>
                 <p style="font-size: medium;">• {{ content.description }}</p>
@@ -50,12 +65,86 @@
             </div>
         </div>
     </div>
-
-
 {% endif %}
-<!-- Footer -->
-
-
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
+<!-- Modal -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="enquiryModalLabel">Enquiry Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="enquiryForm">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Select Service</label>
+                        <select class="form-control" id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Inventory Management">Inventory Management</option>
+                            <option value="ERP">ERP</option>
+                            <option value="CRM">CRM</option>
+                            <option value="HRMS">HRMS</option>
+                            <option value="Ecommerce">Ecommerce</option>
+                            <option value="Analytics">Analytics</option>
+                            <option value="Website">Website</option>
+                            <option value="Web App">Web App</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock body %}
 {% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#enquiryForm').on('submit', function(e){
+            e.preventDefault();
+            // Collect form data
+            const email = $('#email').val();
+            const service = $('#service').val();
+            const message = $('#message').val();
+            
+            // Log form data to console
+            console.log('Enquiry Submitted:', { email, service, message });
+            
+            // Make AJAX call to Frappe
+            $.ajax({
+                type: 'GET',
+                url: '/api/method/wizardcog.apiv1.ajax.create_enquiry', // Update with your actual Frappe method URL
+                data: {
+                    client_mail: email,
+                    enquiry_for: service,
+                    enquiry_message: message
+                },
+                success: function(response) {
+                    $('#enquiryModal').modal('hide');
+                    alert('Enquiry submitted successfully!');
+                },
+                error: function(error) {
+                    alert('There was an error submitting your enquiry.');
+                    console.error('Error:', error);
+                }
+            });
+        });
+    });
+</script>
 {% endblock script %}

@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{video_name}-VIDEO-CONTENT-{###########}",
+ "creation": "2024-07-20 00:41:16.435274",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "video_name",
+  "video_link",
+  "video_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "video_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Video Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "video_link",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Video Link",
+   "reqd": 1
+  },
+  {
+   "fieldname": "video_description",
+   "fieldtype": "Long Text",
+   "label": "Video Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-20 01:15:47.828318",
+ "modified_by": "Administrator",
+ "module": "Wizardcog",
+ "name": "Video Content",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

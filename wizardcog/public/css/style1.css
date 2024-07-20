@@ -1,136 +1,264 @@
- /* Reset some default styles */
- body, html {
-  margin: 0;
+ /* Add this CSS */
+ .responsive-image-container {
+  width: 200px; /* Set width to 200 pixels */
+  height: 200px; /* Set height to 200 pixels */
+  margin: 0 auto; /* Center the container */
+  overflow: hidden; /* Hide overflow to prevent horizontal scrolling */
+}
+
+.responsive-image {
+  width: 60%; /* Ensure image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure block-level display */
+}
+
+* {
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #1d1e22;
-  color: #eee;
-}
-
-/* Navbar */
-.navbar {
-  background: #1d1e22; /* Very dark purple */
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000; /* Ensures it's above other content */
-}
-
-.navbar ul {
-  list-style-type: none;
   margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
+  box-sizing: border-box;
 }
 
-.navbar li {
-  margin-right: 15px;
+body {
+  background: #ffffff;
+  font-family: sans-serif;
+  color: black; /* Set text color to white */
+  margin-bottom: 80px; /* Ensure space for the footer */
 }
 
-.navbar li:last-child {
-  margin-right: 0;
-}
-
-.navbar a {
-  color: #eee;
-  text-decoration: none;
-  transition: color 0.3s; /* Smooth color transition */
-}
-
-.navbar a:hover {
-  color: #fff; /* Hover color */
-}
-
-.additional-text {
-  text-align: center;
-  color: #fff;
-  font-size: 1.5rem;
-  margin-top: 60px; /* Adjusted margin */
-  margin-bottom: 20px;
-}
-
-.service-list {
-  text-align: center;
-  color: #fff;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.search-container {
-  text-align: center;
-  margin-bottom: 20px; /* Added margin */
-}
-
-.search-bar {
-  background-color: #333;
-  border: none;
-  padding: 20px;
-  border-radius: 20px; /* Rounded corners */
-  color: #eee;
-  width: 60%;
-  max-width: 500px; /* Added maximum width */
-  font-size: 1.2rem; /* Increased font size */
-  display: inline-block; /* Added */
-}
-
-.search-button {
-  background-color: #6600cc; /* Purple */
-  border: none;
-  color: #fff;
-  padding: 20px 30px;
-  border-radius: 0 20px 20px 0; /* Rounded corners */
-  cursor: pointer;
-  transition: background-color 0.3s; /* Smooth background color transition */
-}
-
-.search-button:hover {
-  background-color: #6a0dad; /* Darker purple on hover */
-}
-
-/* Container */
 .container {
-  max-width: 1200px;
-  margin: 0 auto; /* Center container */
-  padding: 0 20px;
-  margin-top: 60px; /* Adjusted margin */
+  width: 90%;
+  margin: 50px auto;
 }
 
-/* Card Grid */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-gap: 20px;
-  padding: 20px 0;
+.heading {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 50px;
+  color: black; /* Set heading color */
 }
 
+.row {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+/*Card */
 .card {
-  background: linear-gradient(to right, #6a0dad, #6600cc); /* Gradient purple */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #6600cc; /* Purple border */
+  width: 23%; /* Adjusted width to fit 4 cards per row */
+  margin-bottom: 50px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content fits within card */
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
-.card img {
-  width: 100%;
-  height: auto;
+.card-header {
+  text-align: center;
+  padding: 20px 10px;
+  color: rgb(0, 0, 0); /* Set header text color to black */
+}
+
+.card-image {
+  text-align: center;
+  margin-top: auto; /* Push image to the bottom of the card */
+}
+
+.card-image img {
+  width: 100%; /* Ensure image width matches card width */
+  max-height: 200px; /* Set a fixed height for uniformity */
+  height: 200px; /* Ensure the image height */
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.card-body {
+  padding: 20px 20px;
+  text-align: center;
+  font-size: 18px;
+  color: rgb(0, 0, 0); /* Set body text color to black */
+}
+
+.card-body .btn {
   display: block;
+  color: white; /* Set button text color to white */
+  text-align: center;
+  background: linear-gradient(to right, #ff41ff, #ff4b2b);
+  text-decoration: none;
+  margin-top: 30px;
+  padding: 10px 5px;
+  transition: 0.3s;
 }
 
-.card-content {
-  padding: 20px;
+.card-body .btn:hover {
+  transform: scale(1.1);
 }
 
-.card-title {
-  font-size: 1rem;
-  margin-bottom: 10px;
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
 }
 
-.card-text {
-  font-size: 0.9rem;
+@media screen and (max-width: 1000px) {
+  .card {
+      width: 40%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .container-wrapper {
+      flex-direction: column;
+  }
+
+  .container {
+      width: 100%;
+  }
+
+  .sidebar {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+  }
+
+  .heading {
+      padding: 20px;
+      font-size: 30px;
+  }
+
+  .card {
+      width: 80%;
+  }
+}
+
+
+
+
+/* Navbar styles */
+
+.my-navbar {
+  display: flex;
+  background-color: rgb(32, 30, 155);
+  align-items: center;
+  color: whitesmoke;
+  padding: 10px;
+}
+
+.my-navbar a {
+  margin-left: 10px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.my-navbar button {
+  margin-left: 15px;
+  font-family: fantasy;
+  font-weight: 600;
+
+}
+
+.my-navbar input[type="text"] {
+  margin-left: auto;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+  color: white; /* Set navbar input text color to white */
+}
+
+@media screen and (max-width: 600px) {
+  .my-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      background-color:rgb(17, 16, 71);
+ 
+  }
+
+  .my-navbar a {
+      display: block;
+      margin: 10px 0; /* Add margin between links */
+      color: rgb(255, 255, 255);
+  }
+
+  .my-navbar input[type="text"] {
+      margin-left: 0;
+      margin-top: 10px;
+      width: 100%;
+  }
+  .my-navbar button{
+    display: block;
+    margin: 10px 0; 
+    font-family: fantasy;
+    font-weight: 600;/* Add margin between links */
+  }
+}
+
+/* Banner image styles */
+.banner-image {
+  width: 100%; /* Make the image fill the container */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure block-level display */
+}
+
+/* Footer styles */
+.footer {
+  background-color: rgb(17, 16, 71); /* Match body color */
+  color: white; /* Text color */
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+
+/*Video Cards */
+/*Card */
+.card-video {
+  width: 30%; /* Adjusted width to fit 4 cards per row */
+  margin-bottom: 50px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content fits within card */
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.card-video-header {
+  text-align: center;
+  padding: 20px 10px;
+  color: rgb(0, 0, 0); /* Set header text color to black */
+}
+
+
+
+.card-video-body {
+  padding: 20px 20px;
+  text-align: center;
+  font-size: 18px;
+  color: rgb(0, 0, 0); /* Set body text color to black */
+}
+
+
+.card-video:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1000px) {
+  .card-video {
+      width: 40%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+ 
+
+  .card-video {
+      width: 80%;
+  }
 }
