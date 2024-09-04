@@ -6,31 +6,48 @@
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="/assets/wizardcog/images/WizardcogLarge.png">
-    <link rel="icon"
-		href="/assets/wizardcog/images/WizardcogLarge.png" type="image/x-icon">
-		<link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/desk.bundle.UBEIHRM7.css">
-        <link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/report.bundle.FK32TEFW.css">
-        <link type="text/css" rel="stylesheet" href="/assets/erpnext/dist/css/erpnext.bundle.WMCALI5T.css">
-        <link type="text/css" rel="stylesheet" href="/assets/hrms/dist/css/hrms.bundle.N6HR42LC.css">
-        <link type="text/css" rel="stylesheet" href="/assets/twilio_integration/css/twilio_call_handler.css">
-        <link type="text/css" rel="stylesheet" href="/assets/tekton_theme/dist/css/tekton.bundle.QRP5X46P.css">
-        {% block style %} 
-        {% endblock style %}
-    <!--Frappe Script and Other things for enabling frappe//Frappe Resources-->
+    <link rel="stylesheet" href="/assets/frappe/dist/css/desk.bundle.UBEIHRM7.css">
+    <link rel="stylesheet" href="/assets/frappe/dist/css/report.bundle.FK32TEFW.css">
+    <link rel="stylesheet" href="/assets/erpnext/dist/css/erpnext.bundle.WMCALI5T.css">
+    <link rel="stylesheet" href="/assets/hrms/dist/css/hrms.bundle.N6HR42LC.css">
+    <link rel="stylesheet" href="/assets/twilio_integration/css/twilio_call_handler.css">
+    <link rel="stylesheet" href="/assets/tekton_theme/dist/css/tekton.bundle.QRP5X46P.css">
+    {% block style %} 
+    {% endblock style %}
     <script>
-		window.frappe = {};
-		frappe.ready_events = [];
-		frappe.ready = function(fn) {
-			frappe.ready_events.push(fn);
-		}
-		window.dev_server = {{ dev_server }};
-		window.socketio_port = {{ (frappe.socketio_port or 9000) }};
-		window.show_language_picker = {{ show_language_picker or 'false' }};
-	</script>
+        window.frappe = {};
+        frappe.ready_events = [];
+        frappe.ready = function(fn) {
+            frappe.ready_events.push(fn);
+        }
+        window.dev_server = {{ dev_server }};
+        window.socketio_port = {{ (frappe.socketio_port or 9000) }};
+        window.show_language_picker = {{ show_language_picker or 'false' }};
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer {
+            background-color: #0c194e;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}" data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {%- endif %} class="{{ body_class or ''}}">
-    <!-- Grey with black text -->
     {% block navbar %}{% endblock navbar %}    
     {% block banner %}{% endblock banner %}
     {% block body %}
@@ -53,30 +70,24 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <!--Frappe Resources-->
-    <script type="text/javascript" src="/assets/frappe/dist/js/libs.bundle.LLRFRX7M.js"></script>
-	<script type="text/javascript" src="/assets/frappe/dist/js/desk.bundle.KCXVR24D.js"></script>
-	<script type="text/javascript" src="/assets/frappe/dist/js/list.bundle.CVGNDTRM.js"></script>
-	<script type="text/javascript" src="/assets/frappe/dist/js/form.bundle.TKFS3LAI.js"></script>
-	<script type="text/javascript" src="/assets/frappe/dist/js/controls.bundle.KJGDDOLR.js"></script>
-	<script type="text/javascript" src="/assets/frappe/dist/js/report.bundle.W7KSXB2R.js"></script>
-	<script type="text/javascript" src="/assets/frappe/dist/js/telemetry.bundle.ZJBT5ETW.js"></script>
-	<script type="text/javascript" src="/assets/erpnext/dist/js/erpnext.bundle.SM4W5CHI.js"></script>
-	<script type="text/javascript" src="/assets/hrms/dist/js/hrms.bundle.JJBTL5GW.js"></script>
-	<script type="text/javascript" src="/assets/india_compliance/dist/js/india_compliance.bundle.FEQV43FV.js"></script>
-	<script type="text/javascript" src="/assets/twilio_integration/js/twilio_call_handler.js"></script>
-	<script type="text/javascript" src="/assets/healthcare/dist/js/healthcare.bundle.5EIIQBG6.js"></script>
-	<script type="text/javascript" src="/assets/tekton_theme/dist/js/tekton.bundle.G6ANCHAH.js"></script>
-	
-    
+    <script src="/assets/frappe/dist/js/libs.bundle.LLRFRX7M.js"></script>
+    <script src="/assets/frappe/dist/js/desk.bundle.KCXVR24D.js"></script>
+    <script src="/assets/frappe/dist/js/list.bundle.CVGNDTRM.js"></script>
+    <script src="/assets/frappe/dist/js/form.bundle.TKFS3LAI.js"></script>
+    <script src="/assets/frappe/dist/js/controls.bundle.KJGDDOLR.js"></script>
+    <script src="/assets/frappe/dist/js/report.bundle.W7KSXB2R.js"></script>
+    <script src="/assets/erpnext/dist/js/erpnext.bundle.SM4W5CHI.js"></script>
+    <script src="/assets/hrms/dist/js/hrms.bundle.JJBTL5GW.js"></script>
+    <script src="/assets/india_compliance/dist/js/india_compliance.bundle.FEQV43FV.js"></script>
+    <script src="/assets/twilio_integration/js/twilio_call_handler.js"></script>
+    <script src="/assets/healthcare/dist/js/healthcare.bundle.5EIIQBG6.js"></script>
+    <script src="/assets/tekton_theme/dist/js/tekton.bundle.G6ANCHAH.js"></script>
     <footer class="footer">
-    <p style="color: rgb(255, 255, 255);">WizardCog© 2024 . All rights reserved.</p>
+        <p>WizardCog© 2024 . All rights reserved.</p>
     </footer> 
-{% block script %}
     
+{% block script %}
 {% endblock script %}
 
 </body>

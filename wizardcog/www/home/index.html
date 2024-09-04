@@ -8,18 +8,18 @@
 <div class="my-navbar">
     <a href="/home"><img width="45px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
     {% if frappe.session.user =='Guest' %}
-        <a href="/login"><strong> <i>Profile</i></strong></a>
+        <a href="/login"><strong> <i>Login</i></strong></a>
     {% else %}
-        <a href="/desk"><strong> <i>Profile</i></strong></a>
+        <a href="/desk"><strong> <i>Desk</i></strong></a>
     {% endif %}
-    <a href="/about-us"><strong><i>About</i></strong></a>
-    <a href="/ourvlogs"><strong><i>Blogs</i></strong></a>
 
     <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
-        <button id="contact-btn" class="btn btn-primary btn-small btn-small-block btn-update" data-toggle="modal" data-target="#enquiryModal">Enquiry</button>
+       
         <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin2.jpg" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
         <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
         <a href="https://twitter.com/WizardCog" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
+        <a href="https://wizardcog.in/" target="_blank"><strong> <i>About Us</i></strong></a>
+        <button id="contact-btn" class="btn btn-primary btn-small btn-small-block btn-update" data-toggle="modal" data-target="#enquiryModal">Enquiry</button>
     </div>
 </div>
 {% endblock navbar %}
@@ -30,42 +30,6 @@
 {% block body %}
 <!--------------------------------------------------------------------->
 <!--------------------------------------------------------------------->
-{% if case=="non_routed" %}
-    <div class="container">
-        <div class="heading">
-            <h2><strong>Our Services</strong></h2>
-            <h5><i>At WizardCog Technologies,
-                Our tailored platforms empower businesses to streamline operations, 
-                optimize customer relationships, and drive growth in today's dynamic digital landscape.
-            </i></h5>
-        </div>
-        <div class="row">
-            {% for data in content %}
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{ data.image }}" alt="React Image">
-                </div>
-                <div class="card-header">
-                    <h5>{{ data.title }}</h5>
-                    <a href="/home/{{data.id}}" class="btn btn-primary btn-small btn-small-block btn-update">Read more</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-{% else %}
-    <div class="container">
-        <div class="heading">
-            <p></p>
-            <div style="text-align: left;">
-                <h4>• Service: {{ content.title }}</h4>
-                <h4>• Pricing Range: {{ content.price_range }}</h4>
-                <p style="font-size: medium;">• {{ content.description }}</p>
-                <h4><a style="color: black;" href="/home"><strong>← Home</strong></a></h4>
-            </div>
-        </div>
-    </div>
-{% endif %}
 <!--------------------------------------------------------------------->
 <!--------------------------------------------------------------------->
 <!-- Modal -->
