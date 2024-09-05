@@ -1,9 +1,41 @@
 {% extends "templates/basehome.html" %}
+
 {% block title %}Home{% endblock title %}
+
 {% block style %}
 <link rel="stylesheet" href="/assets/wizardcog/css/style1.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    /* Button styling */
+    .btn-update, .btn-primary {
+        background-image: linear-gradient(to right, #007BFF, #00DBDE); /* Gradient background */
+        border: none;
+        border-radius: 20px; /* More pronounced rounded corners */
+        padding: 10px 20px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px black; /* Subtle text shadow for better readability */
+        transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+    }
+    .btn-update:hover, .btn-update:focus, .btn-primary:hover, .btn-primary:focus {
+        transform: scale(1.05); /* Slight scale on hover */
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.6); /* Enhancing the shadow on hover */
+        background-image: linear-gradient(to right, #0056b3, #007BFF); /* Darker gradient on hover */
+    }
+
+    /* Modal styling */
+    .modal-content {
+        background-color: #333; /* Dark background for the modal */
+        color: white;
+        border-radius: 15px; /* Rounded corners for modal */
+    }
+    .modal-header, .modal-body, .modal-footer {
+        border-color: #444; /* Slightly lighter border color */
+    }
+</style>
 {% endblock style %}
+
 {% block navbar %}
 <div class="my-navbar">
     <a href="/home"><img width="45px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
@@ -14,7 +46,6 @@
     {% endif %}
 
     <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
-       
         <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin2.jpg" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
         <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
         <a href="https://twitter.com/WizardCog" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
@@ -23,15 +54,12 @@
     </div>
 </div>
 {% endblock navbar %}
+
 {% block banner %}
 <img class="banner-image" src="/assets/wizardcog/images/bannerwc.png" alt="Banner Image">
 {% endblock banner %}
 
 {% block body %}
-<!--------------------------------------------------------------------->
-<!--------------------------------------------------------------------->
-<!--------------------------------------------------------------------->
-<!--------------------------------------------------------------------->
 <!-- Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="enquiryModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -74,6 +102,7 @@
     </div>
 </div>
 {% endblock body %}
+
 {% block script %}
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -85,11 +114,11 @@
             // Collect form data
             const email = $('#email').val();
             const service = $('#service').val();
-            const message = $('#message').val();
-            
+            the message = $('#message').val();
+
             // Log form data to console
             console.log('Enquiry Submitted:', { email, service, message });
-            
+
             // Make AJAX call to Frappe
             $.ajax({
                 type: 'GET',

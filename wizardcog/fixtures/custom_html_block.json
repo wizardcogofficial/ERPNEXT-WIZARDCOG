@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Custom HTML Block",
+  "html": "\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n\n    <style>\n\t\t.banner-image {\n  width: 100%; /* Make the image fill the container */\n  max-width: 100%;\n  height: auto; /* Maintain aspect ratio */\n  display: block; /* Ensure block-level display */\n}\n\n    </style>\n</head>\n<body>\n   \n<img class=\"banner-image\" src=\"/assets/wizardcog/images/bannerwc.png\" alt=\"Banner Image\">\n</body>\n</html>\n",
+  "modified": "2024-09-06 00:08:04.412852",
+  "name": "Home-page",
+  "private": 0,
+  "roles": [],
+  "script": null,
+  "style": null
+ }
+]

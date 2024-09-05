@@ -1,0 +1,36 @@
+[
+ {
+  "charts": [],
+  "content": "[{\"id\":\"Iw1tBeyobD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Wizardcog</span>\",\"col\":12}},{\"id\":\"oIDhaTQbJ9\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Home-page\",\"col\":12}}]",
+  "custom_blocks": [
+   {
+    "custom_block_name": "Home-page",
+    "label": "Home-page",
+    "parent": "Wizardcog-Administrator",
+    "parentfield": "custom_blocks",
+    "parenttype": "Workspace"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "Administrator",
+  "hide_custom": 0,
+  "icon": "",
+  "indicator_color": "purple",
+  "is_hidden": 0,
+  "label": "Wizardcog-Administrator",
+  "links": [],
+  "modified": "2024-09-05 13:13:09.168511",
+  "module": null,
+  "name": "Wizardcog-Administrator",
+  "number_cards": [],
+  "parent_page": "",
+  "public": 0,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [],
+  "sequence_id": 0.0,
+  "shortcuts": [],
+  "title": "Wizardcog"
+ }
+]

@@ -17,7 +17,7 @@ fixtures=[
      {
     
 	"dt":"Workspace",
-	"filters":{"public":1}
+	"filters":{"public":0}
 	},
     {
         "dt":"Custom HTML Block"
