@@ -42,6 +42,7 @@ def get_context(context):
         if content_no is None:
                 content=home_page_content()
                 context.case="non_routed"
+                print("content",content,"\n\n\n")
                 context.content=content
         else:
                 content_data=home_page_content_by_id(content_no)

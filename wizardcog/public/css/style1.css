@@ -19,9 +19,9 @@
 }
 
 body {
-  background: #ffffff;
+  background: #6f339a;
   font-family: sans-serif;
-  color: black; /* Set text color to white */
+  color: rgb(255, 255, 255); /* Set text color to white */
   margin-bottom: 80px; /* Ensure space for the footer */
 }
 
@@ -44,7 +44,7 @@ body {
 }
 /*Card */
 .card {
-  width: 23%; /* Adjusted width to fit 4 cards per row */
+  width: 45%; /* Adjusted width to fit 4 cards per row */
   margin-bottom: 50px;
   transition: 0.3s;
   display: flex;
@@ -138,7 +138,7 @@ body {
 
 .my-navbar {
   display: flex;
-  background-color: rgb(32, 30, 155);
+  background-color: #6f339a;
   align-items: center;
   color: whitesmoke;
   padding: 10px;
@@ -204,7 +204,7 @@ body {
 
 /* Footer styles */
 .footer {
-  background-color: rgb(17, 16, 71); /* Match body color */
+  background-color: #4b0082; /* Match body color */
   color: white; /* Text color */
   padding: 10px 0;
   text-align: center;
@@ -226,6 +226,7 @@ body {
   overflow: hidden; /* Ensure content fits within card */
   background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  height:200px;
 }
 
 .card-video-header {

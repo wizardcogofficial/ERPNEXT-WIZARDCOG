@@ -7,12 +7,11 @@
         <div  class="my-navbar">
             <a href="/home"><img width="45px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
             {% if frappe.session.user =='Guest' %}
-                        <a href="/login"><strong> <i>Profile</i></strong></a>
+                        <a href="/login"><strong> <i>Login</i></strong></a>
             {% else %}
-                        <a href="/desk"><strong> <i>Profile</i></strong></a>
+                        <a href="/desk"><strong> <i>Dashboard</i></strong></a>
             {% endif %}
-            <a href="/about-us"><strong><i>About</i></strong></a>
-            <a href="/ourvlogs"><strong><i>Blogs</i></strong></a>
+            
 
             <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
                 <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin2.jpg" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
@@ -22,7 +21,7 @@
         </div>
 {% endblock navbar %}
 {% block banner %}
-        <img class="banner-image" src="/assets/wizardcog/images/bannerwc.png" alt="Banner Image">
+    <img class="banner-image" src="/assets/wizardcog/images/erpbanner.png" alt="Banner Image">
 {% endblock banner %}
 
 {% block body %}
@@ -33,7 +32,7 @@
           <!-- Add the banner image below the navbar -->
           <div class="container">
             <div class="heading">
-                <h2><strong>Our Blogs</strong></h2>
+                <h2 style="color:white"><strong>Our Blogs</strong></h2>
             </div>
             
            
@@ -44,8 +43,8 @@
                     <div class="card-image">
                         <img src="{{ data.image }}" alt="React Image">
                     </div>
-                    <div class="card-header">
-                        <h5>{{ data.title }}</h5>
+                    <div  class="card-header">
+                        <h5 style="color:white">{{ data.title }}</h5>
                         <a href="/ourvlogs/{{data.name}}" class="btn btn-primary btn-small btn-small-block btn-update">Read more</a>
                     </div>
                     
@@ -57,7 +56,7 @@
           <!--VIDEOS-->
         <div class="container">
             <div class="heading">
-                <h2><strong>Our Videos</strong></h2>
+                <h2 style="color:white"><strong>Our Videos</strong></h2>
             
             </div>
             
@@ -81,9 +80,9 @@
         <div class="heading">
             <p></p>
             <div style="text-align: left;"> <!-- Adjusted alignment -->
-                <h4>• {{ data.title }}</h4>
-                <p style="font-size: medium;">• {{ data.content }}</p>
-                <h4><a style="color: black;" href="/ourvlogs"><strong>← Go Back</strong></a></h4>
+                <h4 style="color:white">• {{ data.title }}</h4>
+                <p style="font-size: medium;color:white;">• {{ data.content }}</p>
+                <h4><a style="color: white;" href="/ourvlogs"><strong>← Go Back</strong></a></h4>
             </div>
         </div>
     </div>

@@ -8,9 +8,9 @@
 <style>
     /* Button styling */
     .btn-update, .btn-primary {
-        background-image: linear-gradient(to right, #007BFF, #00DBDE); /* Gradient background */
+        background-color: blueviolet;
         border: none;
-        border-radius: 20px; /* More pronounced rounded corners */
+        border-radius: 5px; /* More pronounced rounded corners */
         padding: 10px 20px;
         color: white;
         font-size: 16px;
@@ -21,7 +21,7 @@
     .btn-update:hover, .btn-update:focus, .btn-primary:hover, .btn-primary:focus {
         transform: scale(1.05); /* Slight scale on hover */
         box-shadow: 0 5px 15px rgba(0, 123, 255, 0.6); /* Enhancing the shadow on hover */
-        background-image: linear-gradient(to right, #0056b3, #007BFF); /* Darker gradient on hover */
+       
     }
 
     /* Modal styling */
@@ -40,26 +40,71 @@
 <div class="my-navbar">
     <a href="/home"><img width="45px" src="/assets/wizardcog/images/WizardcogFinal.png" alt=""></a>
     {% if frappe.session.user =='Guest' %}
-        <a href="/login"><strong> <i>Login</i></strong></a>
+            <a href="/login"><strong> <i>Login</i></strong></a>
     {% else %}
-        <a href="/desk"><strong> <i>Desk</i></strong></a>
+            <a href="/desk"><strong> <i>Dashboard</i></strong></a>
     {% endif %}
-
     <div class="social-links" style="margin-left: auto; display: flex; align-items: center;">
+        
+        <a href="https://wizardcog.in/" target="_blank"><strong> <i>About Us</i></strong></a>
+        <a href="/ourvlogs" target="_blank"><strong> <i>Blogs</i></strong></a>
+        
+        <button id="contact-btn" class="btn btn-primary" data-toggle="modal" data-target="#enquiryModal">Contact Us</button>
+        
         <a href="https://www.linkedin.com/company/101717673/admin/feed/posts/" target="_blank"><img src="/assets/wizardcog/images/linkedin2.jpg" alt="LinkedIn" style="width: 30px; margin-left: 10px;"></a>
         <a href="https://www.facebook.com/people/WizardCog/61557586123479/" target="_blank"><img src="/assets/wizardcog/images/facebook2.png" alt="Facebook" style="width: 30px; margin-left: 10px;"></a>
         <a href="https://twitter.com/WizardCog" target="_blank"><img src="/assets/wizardcog/images/x.png" alt="X" style="width: 30px; margin-left: 10px;"></a>
-        <a href="https://wizardcog.in/" target="_blank"><strong> <i>About Us</i></strong></a>
-        <button id="contact-btn" class="btn btn-primary btn-small btn-small-block btn-update" data-toggle="modal" data-target="#enquiryModal">Enquiry</button>
     </div>
 </div>
 {% endblock navbar %}
-
 {% block banner %}
-<img class="banner-image" src="/assets/wizardcog/images/bannerwc.png" alt="Banner Image">
+<img class="banner-image" src="/assets/wizardcog/images/erpbanner.png" alt="Banner Image">
 {% endblock banner %}
+<!--------------------------------------------------------------------->
 
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
 {% block body %}
+{% if case=="non_routed" %}
+
+    <div class="container" style="color: white;">
+        <div class="heading">
+            <h2 style="color: white;"><strong>Our Services</strong></h2>
+            <h6 style="color: white;"> At WizardCog Technologies,
+                Our tailored platforms empower businesses to streamline operations, 
+                optimize customer relationships, and drive growth in today's dynamic digital landscape.
+            </h6>
+        </div>
+
+        <div class="row">
+            {% for data in content %}
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{ data.image }}" alt="React Image">
+                </div>
+                <div class="card-header">
+                    <h5 >{{ data.title }}</h5>
+                   
+                    <a  href="/home/{{data.id}}" class="btn btn-primary btn-small btn-small-block btn-update">Read more</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <div class="container">
+        <div class="heading">
+            <p></p>
+            <div style="text-align: left;" >
+                <h6 style="color: white;"><strong>• Service:</strong> {{ content.title }}</h6>
+                <h6 style="color: white;"><strong>{{ content.description }}</strong>• </h6>
+                <h6 style="color: white;"><strong>• Pricing Range:</strong> {{ content.price_range }}</h6>
+                
+                <h4><a style="color: rgb(255, 255, 255);" href="/home"><strong>← Home</strong></a></h4>
+            </div>
+        </div>
+    </div>
+{% endif %}
 <!-- Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" role="dialog" aria-labelledby="enquiryModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
